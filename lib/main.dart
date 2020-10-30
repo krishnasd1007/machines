@@ -1,207 +1,134 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:slider_button/slider_button.dart';
-//import 'Menu.dart';
 
 void main() {
-  runApp(Control());
+  runApp(Machines());
 }
 
-class Control extends StatefulWidget {
+class Machines extends StatefulWidget {
   @override
-  _ControlState createState() => _ControlState();
+  _MachinesState createState() => _MachinesState();
 }
 
-class _ControlState extends State<Control> {
+class _MachinesState extends State<Machines> {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      color: Colors.blueGrey[900],
-      home: ControlPage(),
+      home: MachinesPage(),
     );
   }
 }
 
-
-class ControlPage extends StatefulWidget {
+class MachinesPage extends StatefulWidget {
   @override
-  _ControlPageState createState() => _ControlPageState();
+  _MachinesPageState createState() => _MachinesPageState();
 }
 
-class _ControlPageState extends State<ControlPage> {
+class _MachinesPageState extends State<MachinesPage> {
 
-  Widget portrait() {
-    return MaterialApp(
-      home: Material(
-        color: Colors.blueGrey[900],
-        child: SingleChildScrollView(
+  var ht;
+  var wt;
+  var hp;
+  var wp;
+  var hl;
+
+  Widget button() {
+    return Material(
+      child: IconButton(
+        icon: Icon(Icons.keyboard_arrow_left),
+        color: Colors.lightGreen,
+        splashColor: Colors.red,
+        padding: EdgeInsets.all(10),
+        onPressed: () {},
+      ),
+    );
+  }
+
+  Widget raisebutton(st) {
+    return Material(
+      child: RaisedButton(
+        onPressed: () {},
+        child: Text(st, style: TextStyle(
+          color: Colors.white70,
+          fontWeight: FontWeight.bold,
+        ),),
+        color: Colors.lightGreen,
+      ),
+    );
+  }
+
+  Widget machine(s,h,w) {
+    return Material(
+      child: Card(
+        child: Container(
+          padding: EdgeInsets.all(10.0),
+          height: h,
+          width: w,
+          color: Colors.black87,
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
-              Container(
-                height: (MediaQuery.of(context).size.height)*0.1,
-                child: IconButton(
-                  onPressed: () {},
-                  icon: Icon(Icons.keyboard_arrow_left),
-                  color: Colors.lightGreen,
-                ),,
-              ),
-              Container(
-                height: (MediaQuery.of(context).size.height)*0.1,
-                child: SliderButton(
-                  action: () {},
-                  label: Text('MANUAL'),
-                  icon: Center(child: Icon(Icons.control_point,color: Colors.lightGreen,),),
-                ),
-              ),
-              Container(
-                height: (MediaQuery.of(context).size.height)*0.3,
-                width: (MediaQuery.of(context).size.width),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Container(
-                      height: (MediaQuery.of(context).size.height)*0.1,
-                      width: (MediaQuery.of(context).size.width),
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.keyboard_arrow_up),
-                        color: Colors.deepOrange,
-                      ),
-                    ),
-                    Container(
-                      height: (MediaQuery.of(context).size.height)*0.1,
-                      width: (MediaQuery.of(context).size.width),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          IconButton(
-                            onPressed: () {},
-                            icon: Icon(Icons.keyboard_arrow_left) ,
-                            color: Colors.deepOrange,
-                          ),
-                          IconButton(
-                            onPressed: () {},
-                            icon: Icon(Icons.keyboard_arrow_right) ,
-                            color: Colors.deepOrange,
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      height: (MediaQuery.of(context).size.height)*0.1,
-                      width: (MediaQuery.of(context).size.width),
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.keyboard_arrow_down),
-                        color: Colors.deepOrange,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                height: (MediaQuery.of(context).size.height)*0.3,
-                width: (MediaQuery.of(context).size.width),
-                child: Card(
-                  color: Colors.blueGrey,
-                ),
-              ),
+              Text(s, style: TextStyle(
+                color: Colors.white70,
+                fontWeight: FontWeight.bold,
+              ),),
+              raisebutton('GO'),
+              raisebutton('DETAILS'),
             ],
           ),
         ),
       ),
+    );
+  }
+
+  Widget row(m1,m2,h) {
+    return Material(
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        children: <Widget>[
+          machine(m1,h,wp),
+          machine(m2,h,wp),
+        ],
+      ),
+    );
+  }
+
+  Widget portrait(h) {
+    return Material(
+      color: Colors.blueGrey[900],
+      child: SingleChildScrollView(
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: <Widget>[
+            button(),
+            row('MACHINE 1', 'MACHINE 2', h),
+            row('MACHINE 3', 'MACHINE 4', h),
+            row('MACHINE 5', 'MACHINE 6', h),
+            row('MACHINE 7', 'MACHINE 8', h),
+          ],
+        ),
+      )
     );
   }
 
   Widget landscape() {
-    return MaterialApp(
-      home: Material(
-        color: Colors.blueGrey[900],
-        child: SingleChildScrollView(
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              Container(
-                height: (MediaQuery.of(context).size.height)*0.1,
-              ),
-              Container(
-                height: (MediaQuery.of(context).size.height)*0.1,
-                child: SliderButton(
-                  action: () {},
-                  label: Text('MANUAL'),
-                  icon: Center(child: Icon(Icons.control_point,color: Colors.lightGreen,),),
-                ),
-              ),
-              Container(
-                height: (MediaQuery.of(context).size.height)*0.3,
-                width: (MediaQuery.of(context).size.width),
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                  children: <Widget>[
-                    Container(
-                      height: (MediaQuery.of(context).size.height)*0.1,
-                      width: (MediaQuery.of(context).size.width),
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.keyboard_arrow_up),
-                        color: Colors.deepOrange,
-                      ),
-                    ),
-                    Container(
-                      height: (MediaQuery.of(context).size.height)*0.1,
-                      width: (MediaQuery.of(context).size.width),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                        children: <Widget>[
-                          IconButton(
-                            onPressed: () {},
-                            icon: Icon(Icons.keyboard_arrow_left) ,
-                            color: Colors.deepOrange,
-                          ),
-                          IconButton(
-                            onPressed: () {},
-                            icon: Icon(Icons.keyboard_arrow_right) ,
-                            color: Colors.deepOrange,
-                          ),
-                        ],
-                      ),
-                    ),
-                    Container(
-                      height: (MediaQuery.of(context).size.height)*0.1,
-                      width: (MediaQuery.of(context).size.width),
-                      child: IconButton(
-                        onPressed: () {},
-                        icon: Icon(Icons.keyboard_arrow_down),
-                        color: Colors.deepOrange,
-                      ),
-                    ),
-                  ],
-                ),
-              ),
-              Container(
-                height: (MediaQuery.of(context).size.height)*0.3,
-                width: (MediaQuery.of(context).size.width),
-                child: Card(
-                  color: Colors.blueGrey,
-                ),
-              ),
-            ],
-          ),
-        ),
-      ),
+    return Material(
+      child: portrait(hl),
     );
   }
 
-
   @override
   Widget build(BuildContext context) {
+     ht = MediaQuery.of(context).size.height;
+     wt = MediaQuery.of(context).size.width;
+     hp = 0.3*ht;
+     wp = 0.4*wt;
+     hl = 0.6*ht;
     return MaterialApp(
-      color: Colors.blueGrey[900],
       home: OrientationBuilder(
         builder: (context,orientation) {
           if (orientation == Orientation.portrait){
-            return portrait();
+            return portrait(hp);
           }else{
             return landscape();
           }
