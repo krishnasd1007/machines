@@ -26,11 +26,7 @@ class MachinesPage extends StatefulWidget {
 
 class _MachinesPageState extends State<MachinesPage> {
 
-  var ht;
-  var wt;
-  var hp;
-  var wp;
-  var hl;
+  var hl,hrp,wrp,hrl,wrl,ht,wt,hp,wp;
 
   Widget button() {
     return Material(
@@ -44,27 +40,40 @@ class _MachinesPageState extends State<MachinesPage> {
     );
   }
 
-  Widget raisebutton(st) {
+  Widget raisebutton(st,hr,wr) {
     return Material(
-      child: RaisedButton(
-        onPressed: () {},
-        child: Text(st, style: TextStyle(
-          color: Colors.white70,
-          fontWeight: FontWeight.bold,
-        ),),
-        color: Colors.lightGreen,
+      child: Container(
+        height: hr,
+        width: wr,
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.all(Radius.circular(15.0)),
+        ),
+        child: RaisedButton(
+          onPressed: () {},
+          child: Text(st, style: TextStyle(
+            color: Colors.white70,
+            fontWeight: FontWeight.bold,
+          ),),
+          color: Colors.lightGreen,
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.all(Radius.circular(15.0)),
+          ),
+        ),
       ),
     );
   }
 
-  Widget machine(s,h,w) {
+  Widget machine(s,h,w,hr,wr) {
     return Material(
       child: Card(
         child: Container(
           padding: EdgeInsets.all(10.0),
           height: h,
           width: w,
-          color: Colors.black87,
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.all(Radius.circular(20.0)),
+            color: Colors.black87,
+          ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
@@ -72,8 +81,8 @@ class _MachinesPageState extends State<MachinesPage> {
                 color: Colors.white70,
                 fontWeight: FontWeight.bold,
               ),),
-              raisebutton('GO'),
-              raisebutton('DETAILS'),
+              raisebutton('GO',hr,wr),
+              raisebutton('DETAILS',hr,wr),
             ],
           ),
         ),
@@ -81,31 +90,54 @@ class _MachinesPageState extends State<MachinesPage> {
     );
   }
 
-  Widget row(m1,m2,h) {
+  Widget row(m1,m2,h,hr,wr) {
     return Material(
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          machine(m1,h,wp),
-          machine(m2,h,wp),
+          machine(m1,h,wp,hr,wr),
+          machine(m2,h,wp,hr,wr),
         ],
       ),
     );
   }
 
-  Widget portrait(h) {
+  Widget appbar(ha,wa) {
     return Material(
-      color: Colors.blueGrey[900],
-      child: SingleChildScrollView(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: <Widget>[
-            button(),
-            row('MACHINE 1', 'MACHINE 2', h),
-            row('MACHINE 3', 'MACHINE 4', h),
-            row('MACHINE 5', 'MACHINE 6', h),
-            row('MACHINE 7', 'MACHINE 8', h),
-          ],
+      child: Card(
+        color: Colors.black87,
+        shape: RoundedRectangleBorder(
+          borderRadius: BorderRadius.all(Radius.circular(20.0))
+        ),
+        child: Container(
+          height: ha,
+          width: wa,
+          child: Center(child: Text('MACHINES', style: TextStyle(
+              color: Colors.white70, fontWeight: FontWeight.bold,fontSize: ht*0.05))),
+        ),
+      ),
+    );
+  }
+
+  Widget portrait(h,ha,wa,hr,wr) {
+    return Material(
+      child: Container(
+        height: ht,
+        width: wt,
+        color: Colors.blueGrey[900],
+        child: SingleChildScrollView(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+            children: <Widget>[
+              Padding(padding: EdgeInsets.all(10)),
+              button(),
+              appbar(ha, wa),
+              row('MACHINE 1', 'MACHINE 2', h,hr,wr),
+              row('MACHINE 3', 'MACHINE 4', h,hr,wr),
+              row('MACHINE 5', 'MACHINE 6', h,hr,wr),
+              row('MACHINE 7', 'MACHINE 8', h,hr,wr),
+            ],
+          ),
         ),
       )
     );
@@ -113,7 +145,7 @@ class _MachinesPageState extends State<MachinesPage> {
 
   Widget landscape() {
     return Material(
-      child: portrait(hl),
+      child: portrait(hl,ht*0.2,wt*0.9,hrl,wrl),
     );
   }
 
@@ -124,11 +156,15 @@ class _MachinesPageState extends State<MachinesPage> {
      hp = 0.3*ht;
      wp = 0.4*wt;
      hl = 0.6*ht;
+     hrp = 0.08*ht;
+     wrp = 0.25*wt;
+     hrl = 0.16*ht;
+     wrl = 0.25*wt;
     return MaterialApp(
       home: OrientationBuilder(
         builder: (context,orientation) {
           if (orientation == Orientation.portrait){
-            return portrait(hp);
+            return portrait(hp,ht*0.1,wt*0.9,hrp,wrp);
           }else{
             return landscape();
           }
