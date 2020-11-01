@@ -38,7 +38,7 @@ class _TeamPageState extends State<TeamPage> {
     );
   }
 
-  Widget team(h,w,name,img) {
+  Widget team(h,w,name,img,htimg) {
     return Container(
       padding: EdgeInsets.all(10.0),
       margin: EdgeInsets.all(10.0),
@@ -53,7 +53,7 @@ class _TeamPageState extends State<TeamPage> {
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
           CircleAvatar(
-            radius: ht*0.05,
+            radius: htimg,
             backgroundImage: img,
           ),
           Text(
@@ -69,14 +69,14 @@ class _TeamPageState extends State<TeamPage> {
     );
   }
 
-  Widget row(h,w,name1,name2,img) {
+  Widget row(h,w,name1,name2,img,htimg) {
     return Material(
       color: Colors.blueGrey[900],
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
-          team(h, w, name1, img),
-          team(h, w, name2, img),
+          team(h, w, name1, img,htimg),
+          team(h, w, name2, img,htimg),
         ],
       ),
     );
@@ -101,7 +101,7 @@ class _TeamPageState extends State<TeamPage> {
     );
   }
 
-  Widget portrait(ha,wa,h,w) {
+  Widget portrait(ha,wa,h,w,htimg) {
     return Material(
       child: Container(
         height: ht,
@@ -114,9 +114,9 @@ class _TeamPageState extends State<TeamPage> {
               Padding(padding: EdgeInsets.all(10)),
               button(),
               appbar(ha, wa),
-              row(h, w, 'A','X', AssetImage('')),
-              row(h, w, 'B','Y', AssetImage('')),
-              row(h, w, 'C','Z', AssetImage('')),
+              row(h, w, 'A','X', AssetImage(''),htimg),
+              row(h, w, 'B','Y', AssetImage(''),htimg),
+              row(h, w, 'C','Z', AssetImage(''),htimg),
             ],
           ),
         ),
@@ -126,7 +126,7 @@ class _TeamPageState extends State<TeamPage> {
 
   Widget landscape() {
     return Material(
-      child: portrait(ht*0.2,wt*0.9,hl,wl),
+      child: portrait(ht*0.2,wt*0.9,hl,wl,ht*0.1),
     );
   }
 
@@ -142,7 +142,7 @@ class _TeamPageState extends State<TeamPage> {
       home: OrientationBuilder(
         builder: (context,orientation) {
           if (orientation == Orientation.portrait){
-            return portrait(ht*0.1,wt*0.9,hp,wp);
+            return portrait(ht*0.1,wt*0.9,hp,wp,ht*0.05);
           }else{
             return landscape();
           }
