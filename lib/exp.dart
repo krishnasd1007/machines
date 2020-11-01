@@ -27,6 +27,7 @@ class _MachinesPageState extends State<MachinesPage> {
 
   Widget button() {
     return Material(
+      color: Colors.blueGrey[900],
       child: IconButton(
         icon: Icon(Icons.keyboard_arrow_left),
         color: Colors.lightGreen,
@@ -37,7 +38,7 @@ class _MachinesPageState extends State<MachinesPage> {
     );
   }
 
-  Widget raisebutton(st,hr,wr) {
+  Widget raisebutton(st,hr,wr,col) {
     return Container(
         height: hr,
         width: wr,
@@ -50,7 +51,7 @@ class _MachinesPageState extends State<MachinesPage> {
             color: Colors.white70,
             fontWeight: FontWeight.bold,
           ),),
-          color: Colors.lightGreen,
+          color: col,
           shape: RoundedRectangleBorder(
             borderRadius: BorderRadius.all(Radius.circular(15.0)),
           ),
@@ -69,8 +70,8 @@ class _MachinesPageState extends State<MachinesPage> {
           width: w,
           decoration: BoxDecoration(
             borderRadius: BorderRadius.all(Radius.circular(20.0)),
-            color: Colors.black87,
-            boxShadow: [BoxShadow(color: Colors.grey,blurRadius: 5.0,),] 
+            color: Colors.teal[800],
+            boxShadow: [BoxShadow(color: Colors.black,blurRadius: 5.2,),]
           ),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -79,8 +80,8 @@ class _MachinesPageState extends State<MachinesPage> {
                 color: Colors.white70,
                 fontWeight: FontWeight.bold,
               ),),
-              raisebutton('GO',hr,wr),
-              raisebutton('DETAILS',hr,wr),
+              raisebutton('GO',hr,wr,Colors.greenAccent[400]),
+              raisebutton('DETAILS',hr,wr,Colors.green[700]),
             ],
           ),
         // ),
@@ -90,7 +91,7 @@ class _MachinesPageState extends State<MachinesPage> {
 
   Widget row(m1,m2,h,hr,wr) {
     return Material(
-      color: Colors.black87,
+      color: Colors.blueGrey[900],
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceEvenly,
         children: <Widget>[
@@ -104,15 +105,17 @@ class _MachinesPageState extends State<MachinesPage> {
   Widget appbar(ha,wa) {
     return Container(
       child: Card(
-        color: Colors.black87,
+        color: Colors.teal[800],
         shape: RoundedRectangleBorder(
           borderRadius: BorderRadius.all(Radius.circular(20.0))
         ),
         child: Container(
           height: ha,
           width: wa,
-          child: Center(child: Text('MACHINES', style: TextStyle(
-              color: Colors.white70, fontWeight: FontWeight.bold,fontSize: ht*0.05))),
+          child: Center(
+            child: Text('MACHINES', style: TextStyle(
+                color: Colors.white70, fontWeight: FontWeight.bold,fontSize: ht*0.03)),
+          ),
         ),
       ),
     );
@@ -123,7 +126,7 @@ class _MachinesPageState extends State<MachinesPage> {
       child: Container(
         height: ht,
         width: wt,
-        color: Colors.black87,
+        color: Colors.blueGrey[900],
         child: SingleChildScrollView(
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -152,12 +155,12 @@ class _MachinesPageState extends State<MachinesPage> {
   Widget build(BuildContext context) {
      ht = MediaQuery.of(context).size.height;
      wt = MediaQuery.of(context).size.width;
-     hp = 0.3*ht;
+     hp = 0.2*ht;
      wp = 0.4*wt;
-     hl = 0.6*ht;
-     hrp = 0.08*ht;
+     hl = 0.4*ht;
+     hrp = 0.05*ht;
      wrp = 0.25*wt;
-     hrl = 0.16*ht;
+     hrl = 0.1*ht;
      wrl = 0.25*wt;
     return MaterialApp(
       home: OrientationBuilder(
