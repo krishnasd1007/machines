@@ -1,10 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 //import 'exp.dart';
-import 'team.dart';
+//import 'team.dart';
+import 'login.dart';
 
 void main() {
-  runApp(Team());
+  runApp(Home());
 }
 
 // class Machines extends StatefulWidget {
