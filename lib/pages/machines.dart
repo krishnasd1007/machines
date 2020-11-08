@@ -2,20 +2,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 
-class Machines extends StatefulWidget {
-  @override
-  _MachinesState createState() => _MachinesState();
-}
-
-class _MachinesState extends State<Machines> {
-  @override
-  Widget build(BuildContext context) {
-    return MaterialApp(
-      home: MachinesPage(),
-    );
-  }
-}
-
 class MachinesPage extends StatefulWidget {
   @override
   _MachinesPageState createState() => _MachinesPageState();
