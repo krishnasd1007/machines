@@ -28,6 +28,24 @@ class _SuggestionPageState extends State<SuggestionPage> {
       onPressed: () {},  
     );
   }
+
+  Widget inputField(lines,hint){
+    return TextField(
+      textAlign: TextAlign.center,
+      minLines: lines,
+      maxLines: lines,
+      style: new TextStyle(
+        fontSize: 16.0,
+        color: Colors.grey[800]
+      ),
+      decoration: InputDecoration(
+        hintText: hint,
+        hintStyle: TextStyle(fontSize:20,),
+        fillColor: Colors.grey[300],
+        filled: true,
+      ),
+    );
+  }
   
   Widget build(BuildContext context) {
     return Scaffold(
@@ -38,45 +56,47 @@ class _SuggestionPageState extends State<SuggestionPage> {
             Expanded(
               flex:1,
               child:Container(
-                padding: const EdgeInsets.all(10),
+                padding: const EdgeInsets.symmetric(horizontal:20,vertical:40),
                 child: Container(
-                  color:Colors.grey
+                  padding: const EdgeInsets.symmetric(horizontal:10),
+                  color: Colors.teal[700],
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text("SUGGESTIONS",
+                        style: TextStyle(
+                          fontWeight:FontWeight.bold,
+                          color:Colors.white,
+                          fontSize: 15
+                        ),
+                      ),
+                      Icon(Icons.reply,color: Colors.white,),
+                    ],
+                  ),
                 ),
               ),
             ),
             Expanded(
               flex:1,
               child:Container(
-                padding: const EdgeInsets.all(10),
-                child: Container(
-                  color:Colors.grey
-                ),
+                padding: const EdgeInsets.symmetric(horizontal:20),
+                child: inputField(4, "SUBJECT")
               ),
             ),
             Expanded(
               flex:2,
               child:Container(
                 padding: const EdgeInsets.symmetric(horizontal:20),
-                child: TextField(
-                  
-                  style: new TextStyle(
-                      backgroundColor: Colors.grey,
-                      fontSize: 16.0,
-                      // height: 2.0,
-                      color: Colors.black
-                  ),
-                  decoration: InputDecoration(
-                    fillColor: Colors.grey,
-                  ),
-                ),
+                child: inputField(14, "DESCRIPTION"),
               ),
             ),
             Expanded(
               flex:1,
               child:Container(
-                padding: const EdgeInsets.symmetric(horizontal:20),
+                padding: const EdgeInsets.all(20),
                 child: Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
                     suggestionButton("CANCEL", Colors.red),
                     suggestionButton("SUBMIT", Colors.green),
