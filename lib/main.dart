@@ -10,7 +10,7 @@ class AppBase extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Dr Moovy',
-      initialRoute: '/suggestion',
+      initialRoute: '/info',
       routes: {
         '/login': (context) => LoginPage(),
         '/splash': (context) => SplashPage(),
@@ -19,7 +19,7 @@ class AppBase extends StatelessWidget {
         '/suggestion': (context) => SuggestionPage(),
         '/feedback': (context) => FeedbackPage(),
         '/machines': (context) => MachinesPage(),
-        // '/info': (context) => InfoPage(),
+        '/info': (context) => InfoPage(),
         '/team': (context) => TeamPage(),
         // '/member': (context) => MemberPage(),
         // '/control': (context) => ControlPage(),
