@@ -9,3 +9,4 @@ export './splash.dart';
 export './status.dart';
 export './suggestion.dart';
 export './team.dart';
+export './machinedetails.dart';
