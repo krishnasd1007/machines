@@ -10,20 +10,20 @@ class AppBase extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Dr Moovy',
-      initialRoute: '/member',
+      initialRoute: '/login',
       routes: {
-        '/login': (context) => LoginPage(),
-        '/splash': (context) => SplashPage(),
-        // '/status': (context) => StatusPage(),
-        '/menu': (context) => MenuPage(),
-        '/suggestion': (context) => SuggestionPage(),
-        '/feedback': (context) => FeedbackPage(),
-        '/machines': (context) => MachinesPage(),
-        '/machinedetails': (context) => MachineDetailsPage(),
-        '/info': (context) => InfoPage(),
-        '/team': (context) => TeamPage(),
-        '/member': (context) => MemberPage(),
-        // '/control': (context) => ControlPage(),
+        '/login': (context) => LoginPage(),                     // UI [], CODE [], LOGIC []  
+        '/splash': (context) => SplashPage(),                   // UI [], CODE [], LOGIC []
+        '/status': (context) => StatusPage(),                   // UI [], CODE [], LOGIC []
+        '/menu': (context) => MenuPage(),                       // UI [], CODE [], LOGIC []
+        '/suggestion': (context) => SuggestionPage(),           // UI [], CODE [], LOGIC []
+        '/feedback': (context) => FeedbackPage(),               // UI [], CODE [], LOGIC []
+        '/machines': (context) => MachinesPage(),               // UI [], CODE [], LOGIC []
+        '/machinedetails': (context) => MachineDetailsPage(),   // UI [], CODE [], LOGIC []
+        '/info': (context) => InfoPage(),                       // UI [], CODE [], LOGIC []
+        '/team': (context) => TeamPage(),                       // UI [], CODE [], LOGIC []
+        '/member': (context) => MemberPage(),                   // UI [], CODE [], LOGIC []
+        '/control': (context) => ControlPage(),                 // UI [], CODE [], LOGIC []
       },
     );
   }
