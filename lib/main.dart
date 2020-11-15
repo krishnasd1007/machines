@@ -3,10 +3,11 @@ import 'package:flutter/material.dart';
 //import 'exp.dart';
 //import 'team.dart';
 //import 'login.dart';
-import 'menu.dart';
+//import 'menu.dart';
+import 'battery.dart';
 
 void main() {
-  runApp(Menu());
+  runApp(Battery());
 }
 
 // class Machines extends StatefulWidget {

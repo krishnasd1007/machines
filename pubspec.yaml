@@ -24,6 +24,9 @@ dependencies:
   flutter:
     sdk: flutter
   slider_button: ^0.6.0
+  flutter_thermometer: ^1.0.0
+  syncfusion_flutter_gauges: ^18.3.48
+
 
 
   # The following adds the Cupertino Icons font to your application.
